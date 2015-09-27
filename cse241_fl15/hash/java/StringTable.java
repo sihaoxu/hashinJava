@@ -8,8 +8,16 @@ public class StringTable {
     //
     // Create an empty table big enough to hold maxSize records.
     //
+	public int max;
+	public int count;
+	static Record[] recordTable;
+	int elements;
     public StringTable(int maxSize) 
     {
+    	elements=maxSize;
+    	max=maxSize;
+
+    	recordTable=new Record[max];
     }
     
     
@@ -21,6 +29,24 @@ public class StringTable {
     //
     public boolean insert(Record r) 
     { 
+    	int k=toHashKey(r.key);
+    	int i=0;
+    	if(count==elements)
+    		return false;
+    	while(i<max)
+    	{
+    		int s=(baseHash(k)+i*stepHash(k))%max;
+    		if((recordTable[s]!=null)&&(recordTable[s].key==r.key))
+    				return false;
+    		if(recordTable[s]==null)
+    		{
+    				recordTable[s]=new Record(r.key);
+    				recordTable[s]=r;
+    			    count++;
+    			    return true;
+    		}
+    		i++;
+    	}
 	return true; 
     }
     
@@ -32,6 +58,16 @@ public class StringTable {
     //
     public void remove(Record r) 
     {
+    	int k=toHashKey(r.key);
+    	int i=0;
+    	while(i<max){
+    		int s=(baseHash(k)+i*stepHash(k))%max;
+    		if(r.key==recordTable[s].key){
+    			recordTable[s].positions=null;
+    			recordTable[s].key="Deleted";
+    		}
+    		i++;
+    	}
     }
     
     
@@ -41,6 +77,18 @@ public class StringTable {
     //
     public Record find(String key) 
     {
+    	int k=toHashKey(key);
+    	int i=0;
+    	while(i<max){
+    		int s=(baseHash(k)+i*stepHash(k))%max;
+    		//System.out.println(s);
+    		//System.out.println(key);
+    		//System.out.println(recordTable[s].key);
+    		if((recordTable[s]!=null)&&(key==recordTable[s].key)){
+    			return recordTable[s];
+    		}
+    		i++;
+    	}
 	return null; 
     }
     
@@ -79,12 +127,23 @@ public class StringTable {
     int baseHash(int hashKey)
     {
 	// Fill in your own hash function here
-	return 0;
+    	int i;
+    	double j=(double)hashKey;
+    	double Max=(double)max;
+    	double c=(Math.sqrt(5)-1)/2;
+    	i=(int)Math.floor((Max*((j*c)%1)));
+	    return i;
     }
     
     int stepHash(int hashKey)
     {
+    	int i;
+    	double j=(double)hashKey;
+    	double Max=(double)max;
+    	double c=(Math.sqrt(5)-1)/2;
+    	i=1+(int)Math.floor(((Max-2)*((j*c)%1)));
 	// Fill in your own hash function here
-	return 0;
+    	
+	return i;
     }
 }
