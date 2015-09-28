@@ -14,8 +14,12 @@ public class StringTable {
 	int elements;
     public StringTable(int maxSize) 
     {
-    	elements=maxSize;
-    	max=maxSize*4;
+    	//elements=maxSize;
+    	//max=maxSize*4;
+    	//recordTable=new Record[max];
+    	elements=2;
+    	max=elements*4;
+    	count=0;
     	recordTable=new Record[max];
     }
     
@@ -30,8 +34,45 @@ public class StringTable {
     { 
     	int k=toHashKey(r.key);
     	int i=0;
-    	if(count==elements)
-    		return false;
+    	if(count==elements){
+    		int z=max;
+    		max=max*2;
+    		int t=elements;
+    		elements=elements*2;
+    		int c=0;
+    		Record[] table=new Record[max];
+    		while(c<z){
+    			if(recordTable[c]!=null){
+    				int ti=0;
+    				while(ti<elements){
+    				int tk=toHashKey(recordTable[c].key);
+    	    		long tsh=(long)stepHash(tk);
+    	    		long tl=(long)ti;
+    	    		long tn=tl*tsh;
+    	    		long tb=(long)baseHash(tk);
+    	    		long tm=(long)max;
+    	    		long tq=(tb+tn)%tm;
+    	    		int ts=(int)tq;
+    	    		//System.out.println(ts);
+    	    		if((table[ts]!=null)&&(table[ts].key.equals(recordTable[c].key)==true))
+    	    				return false;
+    	    		if(table[ts]==null)
+    	    		{
+    	    				table[ts]=new Record(recordTable[c].key);
+    	    				table[ts].positions=recordTable[c].positions;
+    	    				//table[ts].hashKey=tk;
+    	    				break;
+    	    			    //count++;
+    	    			    //System.out.println(recordTable[s].key+"jjjjj");
+    	    		}
+    	    		ti++;
+    				}
+    			}
+    			
+    			c++;
+    		}
+    		recordTable=table;
+    	}
     	while(i<elements)
     	{
     		//int s=(baseHash(k)+i*stepHash(k))%max;
@@ -40,15 +81,14 @@ public class StringTable {
     		long n=l*sh;
     		long b=(long)baseHash(k);
     		long m=(long)max;
-    		long q=(int) ((b+n)%m);
+    		long q=((b+n)%m);
     		int s=(int)q;
-    		if((recordTable[s]!=null)&&(recordTable[s].hashKey==k))
+    		if((recordTable[s]!=null)&&(recordTable[s].key.equals(r.key)==true))
     				return false;
     		if(recordTable[s]==null)
     		{
     				recordTable[s]=new Record(r.key);
     				recordTable[s].positions=r.positions;
-    				recordTable[s].hashKey=k;
     			    count++;
     			    //System.out.println(recordTable[s].key+"jjjjj");
     			    return true;
@@ -78,10 +118,9 @@ public class StringTable {
     		int s=(int)q;
     		//int s=(baseHash(k)+i*stepHash(k))%max;
     		if(recordTable[s]!=null){
-    		   if(k==recordTable[s].hashKey){
+    		   if(r.key.equals(recordTable[s].key)==true){
     			  recordTable[s].positions=null;
     			  recordTable[s].key="Deleted";
-    			  recordTable[s].hashKey=-2;
     		   }
     		}
     		else{
@@ -114,7 +153,7 @@ public class StringTable {
     		//System.out.println(recordTable[s].key+"rrrrr");
     		if(recordTable[s]!=null){
     			//System.out.println(recordTable[s].key+"xxxxx");
-    		   if(k==recordTable[s].hashKey){
+    		   if(key.equals(recordTable[s].key)==true){
     			   //System.out.println(recordTable[s].key+"yyyyy");
     			  return recordTable[s];
     		}
