@@ -32,7 +32,8 @@ public class StringTable {
     //
     public boolean insert(Record r) 
     { 
-    	int k=toHashKey(r.key);
+    	//int k=toHashKey(r.key);
+    	int k=r.hashKey;
     	int i=0;
     	if(count==elements){
     		int z=max;
@@ -45,7 +46,8 @@ public class StringTable {
     			if(recordTable[c]!=null){
     				int ti=0;
     				while(ti<elements){
-    				int tk=toHashKey(recordTable[c].key);
+    				//int tk=toHashKey(recordTable[c].key);
+    				int tk=recordTable[c].hashKey;	
     	    		long tsh=(long)stepHash(tk);
     	    		long tl=(long)ti;
     	    		long tn=tl*tsh;
@@ -106,7 +108,8 @@ public class StringTable {
     //
     public void remove(Record r) 
     {
-    	int k=toHashKey(r.key);
+    	//int k=toHashKey(r.key);
+    	int k=r.hashKey;
     	int i=0;
     	while(i<elements){
     		long sh=(long)stepHash(k);
@@ -121,6 +124,7 @@ public class StringTable {
     		   if(r.key.equals(recordTable[s].key)==true){
     			  recordTable[s].positions=null;
     			  recordTable[s].key="Deleted";
+    			  recordTable[s].hashKey=-2;
     		   }
     		}
     		else{
