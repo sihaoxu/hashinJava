@@ -16,7 +16,7 @@ public class Record {
     public Record(String s)
     {
 	key = s;
-	hashKey=-1;
+    hashKey=-1;
 	positions = new ArrayList<Integer>(1);
     }
 }
