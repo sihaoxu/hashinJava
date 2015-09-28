@@ -15,7 +15,7 @@ public class StringTable {
     public StringTable(int maxSize) 
     {
     	elements=maxSize;
-    	max=maxSize;
+    	max=maxSize*4;
     	recordTable=new Record[max];
     }
     
@@ -32,7 +32,7 @@ public class StringTable {
     	int i=0;
     	if(count==elements)
     		return false;
-    	while(i<max)
+    	while(i<elements)
     	{
     		//int s=(baseHash(k)+i*stepHash(k))%max;
     		long sh=(long)stepHash(k);
@@ -67,7 +67,7 @@ public class StringTable {
     {
     	int k=toHashKey(r.key);
     	int i=0;
-    	while(i<max){
+    	while(i<elements){
     		long sh=(long)stepHash(k);
     		long l=(long)i;
     		long n=l*sh;
@@ -98,7 +98,7 @@ public class StringTable {
     {
     	int k=toHashKey(key);
     	int i=0;
-    	while(i<max){
+    	while(i<elements){
     		long sh=(long)stepHash(k);
     		long l=(long)i;
     		long n=l*sh;
