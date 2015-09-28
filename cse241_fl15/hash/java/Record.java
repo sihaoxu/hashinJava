@@ -16,7 +16,19 @@ public class Record {
     public Record(String s)
     {
 	key = s;
-    hashKey=-1;
+	int A = 1952786893;
+	int B = 367257;
+	int v = B;
+	
+	for (int j = 0; j < s.length(); j++)
+	    {
+		char c = s.charAt(j);
+		v = A * (v + (int) c + j) + B;
+	    }
+	
+	if (v < 0) v = -v;
+    hashKey=v;
 	positions = new ArrayList<Integer>(1);
     }
+
 }
