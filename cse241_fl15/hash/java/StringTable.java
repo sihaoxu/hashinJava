@@ -42,12 +42,13 @@ public class StringTable {
     		long m=(long)max;
     		long q=(int) ((b+n)%m);
     		int s=(int)q;
-    		if((recordTable[s]!=null)&&(recordTable[s].key.equals(r.key)==true))
+    		if((recordTable[s]!=null)&&(recordTable[s].hashKey==k))
     				return false;
     		if(recordTable[s]==null)
     		{
     				recordTable[s]=new Record(r.key);
     				recordTable[s].positions=r.positions;
+    				recordTable[s].hashKey=k;
     			    count++;
     			    //System.out.println(recordTable[s].key+"jjjjj");
     			    return true;
@@ -77,9 +78,10 @@ public class StringTable {
     		int s=(int)q;
     		//int s=(baseHash(k)+i*stepHash(k))%max;
     		if(recordTable[s]!=null){
-    		   if(r.key.equals(recordTable[s].key)==true){
+    		   if(k==recordTable[s].hashKey){
     			  recordTable[s].positions=null;
     			  recordTable[s].key="Deleted";
+    			  recordTable[s].hashKey=-2;
     		   }
     		}
     		else{
@@ -112,7 +114,7 @@ public class StringTable {
     		//System.out.println(recordTable[s].key+"rrrrr");
     		if(recordTable[s]!=null){
     			//System.out.println(recordTable[s].key+"xxxxx");
-    		   if(key.equals(recordTable[s].key)==true){
+    		   if(k==recordTable[s].hashKey){
     			   //System.out.println(recordTable[s].key+"yyyyy");
     			  return recordTable[s];
     		}
