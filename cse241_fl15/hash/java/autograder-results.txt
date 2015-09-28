@@ -1,4 +1,4 @@
-*** RUNNING PRE-TURNIN TESTS ON 2015-09-28 00:02:41 CDT ***
+*** RUNNING PRE-TURNIN TESTS ON 2015-09-28 01:02:38 CDT ***
 * Language is Java
 
 * Running test #1
@@ -11,54 +11,10 @@
 
 * Running test #3
 * Arguments: 18 hash/case3-corpus hash/case3-pattern
-ERROR: output differs from expected result:
-@@ -5,6 +5,7 @@
- 22972 100272 ttttttttttttttttta
- 23402 10523 attacaggcgtgagccac
- 23403 10524 ttacaggcgtgagccacc
-+26671 38397 gagctccatctgaggtct
- 34907 110490 tgagaccctgtctcaaaa
- 34908 110491 gagaccctgtctcaaaaa
- 46143 92294 ttagccaggcatggtggc
-@@ -12,11 +13,17 @@
- 46680 57248 accaccacacccagctaa
- 49547 110490 tgagaccctgtctcaaaa
- 49548 110491 gagaccctgtctcaaaaa
-+54468 39076 tgttgtatcccgcccccg
-+56947 46052 ttaaacacactttaattt
- 58167 10523 attacaggcgtgagccac
- 58168 10524 ttacaggcgtgagccacc
- 61820 50553 gtttgtttgtttgttttt
- 62862 93067 gaggctgaggcaggaaga
- 62863 93068 aggctgaggcaggaagat
-+75641 40162 taaatattgcgtgtgtaa
-+76098 95506 tttgttcctggccctcca
-+77991 139388 agagtctctggagacaca
- 79167 135276 gtgattctcctgcctcag
- 79773 135276 gtgattctcctgcctcag
- 79945 10523 attacaggcgtgagccac
-+84302 159754 gctcacagtggatccctt
---- FAILED test #3
++++ PASSED test #3
 
 * Running test #4
 * Arguments: 180 hash/case4-corpus hash/case4-pattern hash/case4-mask
-ERROR: output differs from expected result:
-@@ -1,3 +1,4 @@
-+12898 804 aaacctcagtggcctaggaagatttcttaccttcttctacgacccaccgcctctggttccaaaagctggccaagtacgactccactctactgaaaatgaaaaaaaaatcatttctccgcgacaccttcattcattagtggttttgaaactaccttgcaccttttaagtaacactgatact
- 56751 53342 ctgcggcgggattgcctgtcacggggagcccgcgaagttttacggatacgataacttacagagacagccgatttttacgacccagcaagaggccgagctggtacaatatcctgactgtaaatcgtccagtggtaatattggcgaggacccagaccacttaaatcagagctcgtctccttc
- 56752 53343 tgcggcgggattgcctgtcacggggagcccgcgaagttttacggatacgataacttacagagacagccgatttttacgacccagcaagaggccgagctggtacaatatcctgactgtaaatcgtccagtggtaatattggcgaggacccagaccacttaaatcagagctcgtctccttct
- 56753 53344 gcggcgggattgcctgtcacggggagcccgcgaagttttacggatacgataacttacagagacagccgatttttacgacccagcaagaggccgagctggtacaatatcctgactgtaaatcgtccagtggtaatattggcgaggacccagaccacttaaatcagagctcgtctccttctc
-@@ -11,6 +12,10 @@
- 56761 53352 attgcctgtcacggggagcccgcgaagttttacggatacgataacttacagagacagccgatttttacgacccagcaagaggccgagctggtacaatatcctgactgtaaatcgtccagtggtaatattggcgaggacccagaccacttaaatcagagctcgtctccttctcaaatgttt
- 56762 53353 ttgcctgtcacggggagcccgcgaagttttacggatacgataacttacagagacagccgatttttacgacccagcaagaggccgagctggtacaatatcctgactgtaaatcgtccagtggtaatattggcgaggacccagaccacttaaatcagagctcgtctccttctcaaatgtttc
- 56763 53354 tgcctgtcacggggagcccgcgaagttttacggatacgataacttacagagacagccgatttttacgacccagcaagaggccgagctggtacaatatcctgactgtaaatcgtccagtggtaatattggcgaggacccagaccacttaaatcagagctcgtctccttctcaaatgtttcc
-+74592 29551 ctagaattgacccaatcaacaccaaggcaacgggggtccctctctgctgtccagccattattctctctgcccagtctatctcagccttctcttgctgtatataggttttaatttaaaatttgatttattacagacaaaaacaaacatataacccttgatggtcttgggtgtgttggattg
-+77012 27019 atggccagagactgaggcgcggagagtactggcagcccagccggcaagccacctctttctttttcattaccttagactccaggatgatcgactttgcctggtgaaattgtacagccttttcctggagaaactcctatagatattccagtaggtgctcaagtggttgtctgagtgtaaagc
-+77013 27020 tggccagagactgaggcgcggagagtactggcagcccagccggcaagccacctctttctttttcattaccttagactccaggatgatcgactttgcctggtgaaattgtacagccttttcctggagaaactcctatagatattccagtaggtgctcaagtggttgtctgagtgtaaagcc
-+77900 30205 tgtggcatggcaagtcacttgattacacgtatgttatttagttaaatttgtgaaaattatgagatgctcaccaacccggtgataaacatgctttcttcctattggctggcctggtcacatggccgcccaactttattcagttgacagcaagtaggagggcccaatggaaggagaaaaaag
- 109336 121695 tgtannnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
- 109336 140192 tgtannnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
- 121226 92625 tcttagannnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
---- FAILED test #4
++++ PASSED test #4
 
-* Passed 2/4 tests
+* Passed 4/4 tests
