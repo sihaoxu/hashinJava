@@ -1,78 +1,19 @@
-*** RUNNING PRE-TURNIN TESTS ON 2015-09-27 19:03:26 CDT ***
+*** RUNNING PRE-TURNIN TESTS ON 2015-09-27 20:02:45 CDT ***
 * Language is Java
 
 * Running test #1
 * Arguments: 4 hash/case1-corpus hash/case1-pattern hash/case1-mask
-ERROR: output differs from expected result:
-@@ -1,11 +0,0 @@
--0 0 agca
--9 4 tacc
--9 18 tacc
--10 5 accc
--11 6 ccca
--14 11 atag
--15 12 tagg
--21 21 catt
--22 22 atta
--23 23 ttag
--27 5 accc
---- FAILED test #1
++++ PASSED test #1
 
 * Running test #2
 * Arguments: 16 hash/case2-corpus hash/case2-pattern hash/case2-mask
-ERROR: output differs from expected result:
-@@ -1,44 +0,0 @@
--151 154 gtctagttgcagtagt
--152 155 tctagttgcagtagtt
--153 156 ctagttgcagtagttc
--154 157 tagttgcagtagttct
--155 158 agttgcagtagttctc
--156 159 gttgcagtagttctcc
--157 160 ttgcagtagttctcca
--158 161 tgcagtagttctccag
--159 162 gcagtagttctccagc
--160 163 cagtagttctccagct
--161 164 agtagttctccagctg
--162 165 gtagttctccagctgg
--163 166 tagttctccagctggt
--164 167 agttctccagctggta
--165 168 gttctccagctggtag
--166 169 ttctccagctggtaga
--167 170 tctccagctggtagag
--168 171 ctccagctggtagagg
--169 172 tccagctggtagaggg
--170 173 ccagctggtagaggga
--171 174 cagctggtagagggag
--172 175 agctggtagagggagc
--173 176 gctggtagagggagca
--174 177 ctggtagagggagcag
--175 178 tggtagagggagcaga
--176 179 ggtagagggagcagat
--177 180 gtagagggagcagatg
--178 181 tagagggagcagatgc
--179 182 agagggagcagatgct
--180 183 gagggagcagatgctg
--181 184 agggagcagatgctgg
--182 185 gggagcagatgctggt
--211 214 acaatgccacgcttct
--212 215 caatgccacgcttctg
--213 216 aatgccacgcttctgc
--817 1120 tgggtgtgtagaagaa
--818 1121 gggtgtgtagaagaag
--819 1122 ggtgtgtagaagaagc
--820 1123 gtgtgtagaagaagcc
--939 1242 gccagcaggggcagga
--956 1259 gcgcatccacagggcc
--957 1260 cgcatccacagggcca
--958 1261 gcatccacagggccat
--959 1262 catccacagggccatg
---- FAILED test #2
++++ PASSED test #2
 
 * Running test #3
 * Arguments: 18 hash/case3-corpus hash/case3-pattern
 ERROR: program terminated abnormally:
-  Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -13140
-	at StringTable.find(StringTable.java:87)
+  Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -35166
+	at StringTable.find(StringTable.java:93)
 	at Main.createTable(Main.java:82)
 	at Main.main(Main.java:62)
 --- FAILED test #3
@@ -80,10 +21,10 @@ ERROR: program terminated abnormally:
 * Running test #4
 * Arguments: 180 hash/case4-corpus hash/case4-pattern hash/case4-mask
 ERROR: program terminated abnormally:
-  Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -141981
-	at StringTable.find(StringTable.java:87)
-	at Main.createTable(Main.java:82)
-	at Main.main(Main.java:62)
+  Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -5555
+	at StringTable.find(StringTable.java:93)
+	at Main.maskTable(Main.java:107)
+	at Main.main(Main.java:65)
 --- FAILED test #4
 
-* Passed 0/4 tests
+* Passed 2/4 tests
