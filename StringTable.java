@@ -16,7 +16,6 @@ public class StringTable {
     {
     	elements=maxSize;
     	max=maxSize;
-
     	recordTable=new Record[max];
     }
     
@@ -35,7 +34,14 @@ public class StringTable {
     		return false;
     	while(i<max)
     	{
-    		int s=(baseHash(k)+i*stepHash(k))%max;
+    		//int s=(baseHash(k)+i*stepHash(k))%max;
+    		long sh=(long)stepHash(k);
+    		long l=(long)i;
+    		long n=l*sh;
+    		long b=(long)baseHash(k);
+    		long m=(long)max;
+    		long q=(int) ((b+n)%m);
+    		int s=(int)q;
     		if((recordTable[s]!=null)&&(recordTable[s].key.equals(r.key)==true))
     				return false;
     		if(recordTable[s]==null)
@@ -62,7 +68,14 @@ public class StringTable {
     	int k=toHashKey(r.key);
     	int i=0;
     	while(i<max){
-    		int s=(baseHash(k)+i*stepHash(k))%max;
+    		long sh=(long)stepHash(k);
+    		long l=(long)i;
+    		long n=l*sh;
+    		long b=(long)baseHash(k);
+    		long m=(long)max;
+    		long q=(int) ((b+n)%m);
+    		int s=(int)q;
+    		//int s=(baseHash(k)+i*stepHash(k))%max;
     		if(recordTable[s]!=null){
     		   if(r.key.equals(recordTable[s].key)==true){
     			  recordTable[s].positions=null;
@@ -86,8 +99,15 @@ public class StringTable {
     	int k=toHashKey(key);
     	int i=0;
     	while(i<max){
-    		int s=(baseHash(k)+i*stepHash(k))%max;
-    		//System.out.println(s);
+    		long sh=(long)stepHash(k);
+    		long l=(long)i;
+    		long n=l*sh;
+    		long b=(long)baseHash(k);
+    		long m=(long)max;
+    		long q=(int) ((b+n)%m);
+    		int s=(int)q;
+    		//System.out.println(n+"n");
+    		//System.out.println(b+"b");
     		//System.out.println(key+"kkkkk");
     		//System.out.println(recordTable[s].key+"rrrrr");
     		if(recordTable[s]!=null){
