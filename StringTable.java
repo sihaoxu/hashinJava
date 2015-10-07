@@ -121,7 +121,7 @@ public class StringTable {
     		int s=(int)q;
     		//int s=(baseHash(k)+i*stepHash(k))%max;
     		if(recordTable[s]!=null){
-    		   if(r.key.equals(recordTable[s].key)==true){
+    		   if((k==recordTable[s].hashKey)&&(r.key.equals(recordTable[s].key)==true)){
     			  recordTable[s].positions=null;
     			  recordTable[s].key="Deleted";
     			  recordTable[s].hashKey=-2;
@@ -157,7 +157,7 @@ public class StringTable {
     		//System.out.println(recordTable[s].key+"rrrrr");
     		if(recordTable[s]!=null){
     			//System.out.println(recordTable[s].key+"xxxxx");
-    		   if(key.equals(recordTable[s].key)==true){
+    		   if((k==recordTable[s].hashKey)&&(key.equals(recordTable[s].key))==true){
     			   //System.out.println(recordTable[s].key+"yyyyy");
     			  return recordTable[s];
     		}
